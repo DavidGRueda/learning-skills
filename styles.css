@@ -1,0 +1,401 @@
+/* =============================================================
+   ORBITANT — colors_and_type.css
+   Core brand tokens: typography + color + baseline semantics.
+   Import once at the top of any page:
+     <link rel="stylesheet" href="/colors_and_type.css" />
+   ============================================================= */
+
+/* ---------- 1. Fonts ---------- */
+
+/* Satoshi — display / brand voice (logotype, headlines, marketing) */
+@font-face {
+  font-family: "Satoshi";
+  src: url("assets/5140f239-b3af-45d6-a255-e5e413a96b81.otf") format("opentype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("assets/e2498921-c455-4b04-ba94-227d000d65f7.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("assets/4643274f-bcd3-4784-8d0c-1e7fbcc8d825.otf") format("opentype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("assets/1288107b-e05c-465d-99bc-997a77033843.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("assets/b22cc5b8-4ae7-4b06-a794-3c121094e3f6.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("assets/e4968525-995a-4419-a7fd-2519ac981feb.otf") format("opentype");
+  font-weight: 700; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Satoshi";
+  src: url("assets/dc35fe5f-00d1-4642-bfef-dca68dc14e27.otf") format("opentype");
+  font-weight: 900; font-style: normal; font-display: swap;
+}
+
+/* IBM Plex Sans — UI, body, long-form text */
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/46d8ae49-9386-4b0a-9533-e3c9769e890c.ttf") format("truetype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/ad40c59e-1145-4bd4-a685-9ece82d8ee91.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/548341b7-490e-4739-b541-1e4c3710098a.ttf") format("truetype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/c0d1e4fe-1e6f-44f1-add1-9046eb14af12.ttf") format("truetype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/9da9b632-10a0-4b25-b996-5f941e2741bc.ttf") format("truetype");
+  font-weight: 600; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/4d718c1b-f363-4bcd-8c90-4d9638a6b9f3.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* IBM Plex Sans Condensed — numerics, dense labels, tabular data */
+@font-face {
+  font-family: "IBM Plex Sans Condensed";
+  src: url("assets/919e64f4-3dee-4c2e-9154-1a6fb7ded144.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans Condensed";
+  src: url("assets/5ef325d9-28bd-494b-84ae-5a6ee3ca148d.ttf") format("truetype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Sans Condensed";
+  src: url("assets/9203e6d1-04ac-4aa0-af6e-45c29eba8dea.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+/* ---------- 2. Design tokens ---------- */
+:root {
+  /* --- Brand palette (from ColorGuide HEX.pdf) --- */
+  --orb-void:            #0D0D0D;   /* Void — near-black, primary dark surface */
+  --orb-plasma:          #4567ED;   /* Plasma Blue — primary brand color */
+  --orb-quantum:         #24CC83;   /* Quantum Green — accent / success / "engineering" */
+  --orb-frozen:          #24C1CC;   /* Frozen Blue — cyan supporting tint */
+  --orb-lavender:        #7C87F7;   /* Cosmic Lavender — soft accent / hovers */
+  --orb-stellar:         #F5F5F5;   /* Stellar White — light surface */
+  --orb-white:           #FFFFFF;
+
+  /* --- Plasma scale (derived from #4567ED via oklch) --- */
+  --orb-plasma-50:       oklch(97% 0.02 262);
+  --orb-plasma-100:      oklch(93% 0.05 262);
+  --orb-plasma-200:      oklch(86% 0.10 262);
+  --orb-plasma-300:      oklch(76% 0.14 262);
+  --orb-plasma-400:      oklch(66% 0.18 262);
+  --orb-plasma-500:      #4567ED;               /* brand */
+  --orb-plasma-600:      oklch(53% 0.20 262);
+  --orb-plasma-700:      oklch(46% 0.18 262);
+  --orb-plasma-800:      oklch(38% 0.14 262);
+  --orb-plasma-900:      oklch(28% 0.10 262);
+
+  /* --- Neutral scale (Void → Stellar) --- */
+  --orb-n-0:             #FFFFFF;
+  --orb-n-50:            #F5F5F5;   /* Stellar */
+  --orb-n-100:           #ECECEC;
+  --orb-n-200:           #D9D9D9;
+  --orb-n-300:           #BFBFBF;
+  --orb-n-400:           #8C8C8C;
+  --orb-n-500:           #595959;
+  --orb-n-600:           #3D3D3D;
+  --orb-n-700:           #262626;
+  --orb-n-800:           #171717;
+  --orb-n-900:           #0D0D0D;   /* Void */
+
+  /* --- Semantic colors (light theme defaults) --- */
+  --bg:                  var(--orb-stellar);
+  --bg-elevated:         var(--orb-white);
+  --bg-sunken:           var(--orb-n-100);
+  --bg-inverse:          var(--orb-void);
+
+  --fg1:                 var(--orb-void);      /* primary text */
+  --fg2:                 var(--orb-n-600);     /* secondary text */
+  --fg3:                 var(--orb-n-400);     /* muted / captions */
+  --fg-on-brand:         var(--orb-white);
+  --fg-inverse:          var(--orb-stellar);
+
+  --brand:               var(--orb-plasma);
+  --brand-hover:         var(--orb-plasma-600);
+  --brand-press:         var(--orb-plasma-700);
+  --brand-subtle:        var(--orb-plasma-50);
+  --brand-subtle-fg:     var(--orb-plasma-700);
+
+  --accent:              var(--orb-quantum);    /* "engineering" accent */
+  --accent-fg:           var(--orb-void);
+  --accent-soft:         var(--orb-lavender);   /* "business/soft" accent */
+
+  --success:             var(--orb-quantum);
+  --info:                var(--orb-frozen);
+  --warning:             #F5A524;
+  --danger:              #E5484D;
+
+  --border:              var(--orb-n-200);
+  --border-strong:       var(--orb-n-300);
+  --border-subtle:       var(--orb-n-100);
+  --focus-ring:          var(--orb-plasma);
+
+  /* --- Type families --- */
+  /* Display = IBM Plex Sans Regular (per brand direction). Satoshi retained
+     as accent/brand-voice option; default display is Plex. */
+  --font-display:        "IBM Plex Sans", "Inter", system-ui, -apple-system, sans-serif;
+  --font-display-accent: "Satoshi", "Inter", system-ui, -apple-system, sans-serif;
+  --font-body:           "Satoshi", "Inter", system-ui, -apple-system, sans-serif;
+  --font-condensed:      "IBM Plex Sans Condensed", "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono:           ui-monospace, "JetBrains Mono", "IBM Plex Mono", Menlo, monospace;
+
+  /* --- Font weights (semantic aliases) --- */
+  --font-weight-light:     300;
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+  --font-weight-black:     900;
+
+  /* --- Display sizes (semantic aliases over --fs-*) --- */
+  --display-xl-size:     4rem;      /* 64px — hero claim, uppercase */
+  --display-lg-size:     3rem;      /* 48px */
+  --display-md-size:     2.25rem;   /* 36px */
+  --display-sm-size:     1.875rem;  /* 30px */
+
+  /* --- Type scale (body-first) --- */
+  --fs-12:               0.75rem;   /* 12 — micro label */
+  --fs-13:               0.8125rem; /* 13 — small label */
+  --fs-14:               0.875rem;  /* 14 — UI default / body-sm */
+  --fs-16:               1rem;      /* 16 — body */
+  --fs-18:               1.125rem;  /* 18 — body-lg */
+  --fs-20:               1.25rem;   /* 20 — h6 / lead */
+  --fs-24:               1.5rem;    /* 24 — h5 */
+  --fs-30:               1.875rem;  /* 30 — h4 */
+  --fs-36:               2.25rem;   /* 36 — h3 */
+  --fs-48:               3rem;      /* 48 — h2 */
+  --fs-64:               4rem;      /* 64 — h1 */
+  --fs-88:               5.5rem;    /* 88 — display */
+
+  /* --- Line heights --- */
+  --lh-tight:            1.05;
+  --lh-snug:             1.2;
+  --lh-normal:           1.45;
+  --lh-relaxed:          1.6;
+
+  /* --- Letter spacing --- */
+  --ls-tight:            -0.02em;  /* display headlines */
+  --ls-snug:             -0.01em;  /* larger headings */
+  --ls-normal:           0;
+  --ls-wide:             0.04em;   /* all-caps eyebrows */
+  --ls-wider:            0.12em;   /* logotype-style eyebrows */
+
+  /* --- Font weights --- */
+  --fw-light:            300;
+  --fw-regular:          400;
+  --fw-medium:           500;
+  --fw-semibold:         600;
+  --fw-bold:             700;
+  --fw-black:            900;
+
+  /* --- Spacing (4px base) --- */
+  --space-0:             0;
+  --space-1:             4px;
+  --space-2:             8px;
+  --space-3:             12px;
+  --space-4:             16px;
+  --space-5:             20px;
+  --space-6:             24px;
+  --space-8:             32px;
+  --space-10:            40px;
+  --space-12:            48px;
+  --space-16:            64px;
+  --space-20:            80px;
+  --space-24:            96px;
+
+  /* --- Radii (Orbitant is geometric; most surfaces are crisp with soft edges) --- */
+  --radius-0:            0;
+  --radius-sm:           4px;
+  --radius-md:           8px;
+  --radius-lg:           12px;
+  --radius-xl:           16px;
+  --radius-2xl:          24px;
+  --radius-pill:         999px;
+
+  /* --- Elevation --- */
+  --shadow-xs:           0 1px 2px rgba(13, 13, 13, 0.06);
+  --shadow-sm:           0 2px 6px rgba(13, 13, 13, 0.08);
+  --shadow-md:           0 8px 24px rgba(13, 13, 13, 0.10);
+  --shadow-lg:           0 20px 48px rgba(13, 13, 13, 0.14);
+  --shadow-brand:        0 12px 32px rgba(69, 103, 237, 0.28);
+  --shadow-inset:        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  /* --- Motion --- */
+  --ease-out:            cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in-out:         cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast:            120ms;
+  --dur-base:            200ms;
+  --dur-slow:            360ms;
+}
+
+/* ---------- 3. Dark theme ---------- */
+[data-theme="dark"] {
+  --bg:                  var(--orb-void);
+  --bg-elevated:         var(--orb-n-800);
+  --bg-sunken:           #050505;
+  --bg-inverse:          var(--orb-stellar);
+
+  --fg1:                 var(--orb-stellar);
+  --fg2:                 var(--orb-n-300);
+  --fg3:                 var(--orb-n-400);
+  --fg-inverse:          var(--orb-void);
+
+  --brand-subtle:        rgba(69, 103, 237, 0.16);
+  --brand-subtle-fg:     var(--orb-lavender);
+
+  --border:              #262626;
+  --border-strong:       #3D3D3D;
+  --border-subtle:       #171717;
+}
+
+/* ---------- 4. Base element styles ---------- */
+html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg1);
+  font-family: var(--font-body);
+  font-size: var(--fs-16);
+  line-height: var(--lh-normal);
+  font-weight: var(--fw-regular);
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  color: var(--fg1);
+  margin: 0;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  font-weight: var(--font-weight-regular);
+  text-transform: uppercase;
+}
+
+h1 { font-size: var(--display-xl-size); }
+h2 { font-size: var(--display-lg-size); }
+h3 { font-size: var(--display-md-size); letter-spacing: var(--ls-snug); }
+h4 { font-size: var(--display-sm-size); letter-spacing: var(--ls-snug); line-height: var(--lh-snug); }
+h5 { font-size: var(--fs-24); letter-spacing: 0; line-height: var(--lh-snug); font-weight: var(--font-weight-semibold); text-transform: none; }
+h6 { font-size: var(--fs-20); letter-spacing: 0; line-height: var(--lh-snug); font-weight: var(--font-weight-semibold); text-transform: none; }
+
+p { margin: 0 0 var(--space-4) 0; line-height: var(--lh-relaxed); color: var(--fg1); }
+
+small, .caption { font-size: var(--fs-13); color: var(--fg2); line-height: var(--lh-normal); }
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+}
+code {
+  background: var(--bg-sunken);
+  border: 1px solid var(--border-subtle);
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+}
+
+a {
+  color: var(--brand);
+  text-decoration: none;
+  text-underline-offset: 3px;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: var(--brand-hover); text-decoration: underline; }
+
+hr { border: 0; border-top: 1px solid var(--border); margin: var(--space-8) 0; }
+
+/* ---------- 5. Utility classes ---------- */
+.display {
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--display-xl-size);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  text-transform: uppercase;
+}
+.eyebrow {
+  font-family: var(--font-condensed);
+  font-weight: var(--fw-medium);
+  font-size: var(--fs-12);
+  letter-spacing: var(--ls-wider);
+  text-transform: uppercase;
+  color: var(--fg2);
+}
+.lead {
+  font-family: var(--font-body);
+  font-size: var(--fs-20);
+  line-height: var(--lh-relaxed);
+  color: var(--fg2);
+  font-weight: var(--fw-regular);
+}
+.numeric {
+  font-family: var(--font-condensed);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* ---------- page layout, animations & responsive ---------- */
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #0D0D0D; }
+  @keyframes orbspin { to { transform: rotate(360deg); } }
+  @keyframes orbspin-rev { to { transform: rotate(-360deg); } }
+  @keyframes caretblink { 0%,49% { opacity: 1; } 50%,100% { opacity: 0; } }
+  @keyframes coreGlow { 0%,100% { box-shadow: 0 0 0 0 rgba(69,103,237,.40), 0 0 60px rgba(69,103,237,.30); } 50% { box-shadow: 0 0 0 22px rgba(69,103,237,0), 0 0 80px rgba(69,103,237,.45); } }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-9px); } }
+  @keyframes dotPulse { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+  /* grid/flex children must be allowed to shrink below their content's
+     intrinsic width, otherwise the nowrap terminal forces horizontal overflow */
+  [data-grid] > *, [data-cards] > * { min-width: 0; }
+  [data-terminal] { max-width: 100%; }
+  @media (max-width: 1024px) {
+    [data-grid] { grid-template-columns: minmax(0,1fr) !important; gap: 44px !important; }
+    [data-orbit] { transform: scale(.84); }
+  }
+  @media (max-width: 768px) {
+    [data-navlinks] { display: none !important; }
+    [data-cards] { grid-template-columns: minmax(0,1fr) !important; }
+    [data-hero-h] { font-size: 38px !important; }
+    [data-sec] { padding-top: 66px !important; padding-bottom: 66px !important; }
+    [data-orbit] { transform: scale(.66); margin: -72px 0; }
+    [data-termbody] { font-size: 12px !important; padding: 18px 16px 20px !important; min-height: 0 !important; }
+    [data-cta-pri], [data-cta-sec] { width: 100%; justify-content: center; }
+    [data-cta-row] { width: 100%; }
+  }
+  @media (max-width: 560px) {
+    [data-container] { padding-left: 18px !important; padding-right: 18px !important; }
+    [data-orbit] { transform: scale(.5); margin: -132px 0; }
+    [data-hero-h] { font-size: 33px !important; }
+    [data-termbody] { font-size: 10.5px !important; }
+  }
